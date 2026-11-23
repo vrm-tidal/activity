@@ -10,8 +10,7 @@ export { unloads } from "./plugin";
 new StyleTag("Activity", unloads, styles);
 
 const page = Page.register(PAGE, unloads, <ActivityPage />);
-page.pageStyles.display = "flex";
-page.pageStyles.flexDirection = "column";
+page.pageStyles.display = "grid";
 page.root.style.order = "-1";
 
 const isOpen = (search: string) => {
