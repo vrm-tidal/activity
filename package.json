@@ -1,0 +1,32 @@
+{
+	"name": "Activity",
+	"description": "Shows your monthly listening statistics.",
+	"homepage": "https://github.com/vrm-tidal/activity",
+	"author": {
+		"name": "marekvonrogall",
+		"url": "https://github.com/marekvonrogall",
+		"avatarUrl": "https://avatars.githubusercontent.com/u/110893394"
+	},
+	"main": "./src/index.tsx",
+	"type": "module",
+	"scripts": {
+		"watch": "concurrently npm:esWatch npm:serve",
+		"build": "rimraf ./dist && tsx esbuild.config.ts",
+		"esWatch": "rimraf ./dist && tsx esbuild.config.ts --watch",
+		"serve": "http-server ./dist -p 3000 -s --cors -c-1"
+	},
+	"dependencies": {
+		"@marekvonrogall/favlib": "github:marekvonrogall/favlib"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.6.8",
+		"@types/node": "^25.0.10",
+		"@types/react": "^19.2.9",
+		"concurrently": "^9.2.1",
+		"http-server": "^14.1.1",
+		"luna": "github:Inrixia/TidaLuna",
+		"rimraf": "^6.1.2",
+		"tsx": "^4.21.0",
+		"typescript": "^5.9.3"
+	}
+}

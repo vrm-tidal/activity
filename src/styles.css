@@ -1,0 +1,12 @@
+.my-activity {
+	box-sizing: content-box;
+	max-width: 1472px;
+	margin: 24px auto;
+	padding: 0 48px;
+}
+
+.my-activity-title {
+	margin: 0;
+	font-size: 27px;
+	line-height: 32px;
+}

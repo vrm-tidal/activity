@@ -1,0 +1,7 @@
+{
+	"extends": "luna/tsconfig.json",
+	"compilerOptions": {
+		"jsx": "react-jsx"
+	},
+	"include": ["src", "esbuild.config.ts"]
+}
