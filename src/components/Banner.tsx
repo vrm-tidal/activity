@@ -1,4 +1,13 @@
+import { redux } from "@luna/lib";
 import type { MonthlyTopArtists } from "@marekvonrogall/favlib";
+
+const openMix = (id: string) => {
+	redux.actions["router/PUSH"]({
+		pathname: `/mix/${id}`,
+		search: "",
+		replace: false,
+	});
+};
 
 const streamsOf = (streams: number) => {
 	return `${streams.toLocaleString()} ${streams === 1 ? "stream" : "streams"}`;
@@ -23,7 +32,13 @@ const describe = (month: MonthlyTopArtists) => {
 	};
 };
 
-export const Banner = ({ month }: { month: MonthlyTopArtists }) => {
+export const Banner = ({
+	month,
+	mixId,
+}: {
+	month: MonthlyTopArtists;
+	mixId: string | null;
+}) => {
 	const { daysLeft } = month.summary;
 	const { title, subtitle } = describe(month);
 	const image = month.banners.landscape ?? month.banners.default;
@@ -49,6 +64,15 @@ export const Banner = ({ month }: { month: MonthlyTopArtists }) => {
 					</span>
 				)}
 			</div>
+			{mixId && (
+				<button
+					type="button"
+					className="my-activity-banner-mix"
+					onClick={() => openMix(mixId)}
+				>
+					Open Mix
+				</button>
+			)}
 		</section>
 	);
 };

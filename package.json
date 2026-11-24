@@ -16,7 +16,7 @@
 		"serve": "http-server ./dist -p 3000 -s --cors -c-1"
 	},
 	"dependencies": {
-		"@marekvonrogall/favlib": "github:marekvonrogall/favlib"
+		"@marekvonrogall/favlib": "github:vrm-tidal/favlib"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.6.8",

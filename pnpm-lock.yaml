@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@marekvonrogall/favlib':
-        specifier: github:marekvonrogall/favlib
-        version: git+https://github.com/marekvonrogall/favlib.git#5669b58386b4d0d5ab2f36527a8e0debdf5c1fd7
+        specifier: github:vrm-tidal/favlib
+        version: https://codeload.github.com/vrm-tidal/favlib/tar.gz/8e50afb97bbb7f1eb61e306285213e06e801ec2f
     devDependencies:
       '@biomejs/biome':
         specifier: 2.6.8
@@ -285,8 +285,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
 
-  '@marekvonrogall/favlib@git+https://github.com/marekvonrogall/favlib.git#5669b58386b4d0d5ab2f36527a8e0debdf5c1fd7':
-    resolution: {commit: 5669b58386b4d0d5ab2f36527a8e0debdf5c1fd7, repo: https://github.com/marekvonrogall/favlib.git, type: git}
+  '@marekvonrogall/favlib@https://codeload.github.com/vrm-tidal/favlib/tar.gz/8e50afb97bbb7f1eb61e306285213e06e801ec2f':
+    resolution: {tarball: https://codeload.github.com/vrm-tidal/favlib/tar.gz/8e50afb97bbb7f1eb61e306285213e06e801ec2f}
     version: 0.0.0
 
   '@types/clean-css@4.2.11':
@@ -855,7 +855,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.3
       '@jridgewell/sourcemap-codec': 1.6.0
 
-  '@marekvonrogall/favlib@git+https://github.com/marekvonrogall/favlib.git#5669b58386b4d0d5ab2f36527a8e0debdf5c1fd7': {}
+  '@marekvonrogall/favlib@https://codeload.github.com/vrm-tidal/favlib/tar.gz/8e50afb97bbb7f1eb61e306285213e06e801ec2f': {}
 
   '@types/clean-css@4.2.11':
     dependencies:
