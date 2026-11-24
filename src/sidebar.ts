@@ -17,6 +17,7 @@ const build = (source: HTMLAnchorElement, href: string, onOpen: () => void) => {
 	const link = source.cloneNode(true) as HTMLAnchorElement;
 	link.setAttribute("data-test", DATA_TEST);
 	link.href = href;
+	link.draggable = false;
 	link.title = LABEL;
 	link.querySelector(":scope > span")?.replaceChildren(LABEL);
 
