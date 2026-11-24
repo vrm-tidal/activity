@@ -5,6 +5,13 @@
 	padding: 0 48px;
 }
 
+.my-activity-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+}
+
 .my-activity-title {
 	margin: 0;
 	font-size: 27px;
@@ -88,7 +95,8 @@
 	transform: rotate(-135deg);
 }
 
-.my-activity-month {
+.my-activity-month,
+.my-activity-mode {
 	flex: none;
 	padding: 7px 16px;
 	border: none;
@@ -101,7 +109,8 @@
 	cursor: pointer;
 }
 
-.my-activity-month:hover {
+.my-activity-month:hover,
+.my-activity-mode:hover {
 	background: rgba(255, 255, 255, 0.14);
 	color: #fff;
 }
@@ -122,7 +131,7 @@
 	padding: 32px;
 	border-radius: 12px;
 	overflow: hidden;
-	background: rgba(255, 255, 255, 0.06) center / cover;
+	background: rgba(255, 255, 255, 0.06) center / 1472px auto no-repeat;
 }
 
 .my-activity-banner::before {
@@ -130,6 +139,10 @@
 	position: absolute;
 	inset: 0;
 	background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent 70%);
+}
+
+.my-activity-banner-blur::before {
+	backdrop-filter: blur(6px);
 }
 
 .my-activity-banner-text {

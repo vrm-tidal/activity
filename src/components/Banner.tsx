@@ -1,5 +1,5 @@
 import { redux } from "@luna/lib";
-import type { MonthlyTopArtists } from "@marekvonrogall/favlib";
+import type { Period } from "../periods";
 
 const openMix = (id: string) => {
 	redux.actions["router/PUSH"]({
@@ -13,44 +13,39 @@ const streamsOf = (streams: number) => {
 	return `${streams.toLocaleString()} ${streams === 1 ? "stream" : "streams"}`;
 };
 
-const describe = (month: MonthlyTopArtists) => {
-	if (month.summary.title) return month.summary;
-	const [first, second] = month.artists;
+const describe = (period: Period) => {
+	if (period.title) return period;
+	const [first, second] = period.artists;
 	if (!first) return { title: null, subtitle: null };
 
 	if (!second) {
 		return {
 			title: first.artist.name,
-			subtitle: `🏆 ${first.artist.name} was your top streamed artist with ${streamsOf(first.streams)}.`,
+			subtitle: `🏆 ${first.artist.name} ${period.current ? "is" : "was"} your top streamed artist with ${streamsOf(first.streams)}.`,
 		};
 	}
 
 	const names = `${first.artist.name} and ${second.artist.name}`;
 	return {
 		title: names,
-		subtitle: `🏆 ${names} were your top streamed artists with ${streamsOf(first.streams)} and ${streamsOf(second.streams)}.`,
+		subtitle: `🏆 ${names} ${period.current ? "are" : "were"} your top streamed artists with ${streamsOf(first.streams)} and ${streamsOf(second.streams)}.`,
 	};
 };
 
-export const Banner = ({
-	month,
-	mixId,
-}: {
-	month: MonthlyTopArtists;
-	mixId: string | null;
-}) => {
-	const { daysLeft } = month.summary;
-	const { title, subtitle } = describe(month);
-	const image = month.banners.landscape ?? month.banners.default;
+export const Banner = ({ period }: { period: Period }) => {
+	const { label, daysLeft, totalStreams, image, blur, mixId } = period;
+	const { title, subtitle } = describe(period);
 	return (
 		<section
-			className="my-activity-banner"
+			className={
+				blur
+					? "my-activity-banner my-activity-banner-blur"
+					: "my-activity-banner"
+			}
 			style={image ? { backgroundImage: `url("${image}")` } : undefined}
 		>
 			<div className="my-activity-banner-text">
-				{month.title && (
-					<span className="my-activity-banner-month">{month.title}</span>
-				)}
+				{label && <span className="my-activity-banner-month">{label}</span>}
 				{title && <h2>{title}</h2>}
 				{subtitle && <p>{subtitle}</p>}
 				{daysLeft !== null && (
@@ -58,9 +53,9 @@ export const Banner = ({
 						{daysLeft} {daysLeft === 1 ? "day" : "days"} left
 					</span>
 				)}
-				{daysLeft === null && month.totalStreams !== null && (
+				{daysLeft === null && totalStreams !== null && (
 					<span className="my-activity-pill">
-						{month.totalStreams.toLocaleString()} total streams
+						{totalStreams.toLocaleString()} total streams
 					</span>
 				)}
 			</div>

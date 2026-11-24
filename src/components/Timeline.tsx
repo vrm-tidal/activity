@@ -1,4 +1,3 @@
-import type { MonthlyTopArtists } from "@marekvonrogall/favlib";
 import { useEffect, useRef, useState } from "react";
 
 const scrollSideways = (event: WheelEvent) => {
@@ -37,11 +36,11 @@ const Arrow = ({
 };
 
 export const Timeline = ({
-	months,
+	labels,
 	selected,
 	onSelect,
 }: {
-	months: MonthlyTopArtists[];
+	labels: string[];
 	selected: number;
 	onSelect: (index: number) => void;
 }) => {
@@ -92,9 +91,9 @@ export const Timeline = ({
 				className={stripClass}
 				onScroll={(event) => setEdges(edgesOf(event.currentTarget))}
 			>
-				{months.map(({ year, month, title }, index) => (
+				{labels.map((label, index) => (
 					<button
-						key={`${year}-${month}`}
+						key={label}
 						type="button"
 						className={
 							index === selected
@@ -103,7 +102,7 @@ export const Timeline = ({
 						}
 						onClick={() => onSelect(index)}
 					>
-						{title}
+						{label}
 					</button>
 				))}
 			</nav>
