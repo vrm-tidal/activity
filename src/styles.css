@@ -16,6 +16,102 @@
 	color: rgba(255, 255, 255, 0.6);
 }
 
+.my-activity-timeline {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin-top: 24px;
+}
+
+.my-activity-months {
+	--fade-start: 0px;
+	--fade-end: 0px;
+	display: flex;
+	flex: 1;
+	gap: 8px;
+	min-width: 0;
+	overflow-x: auto;
+	scrollbar-width: none;
+	mask-image: linear-gradient(
+		to right,
+		transparent 0,
+		#000 var(--fade-start),
+		#000 calc(100% - var(--fade-end)),
+		transparent 100%
+	);
+}
+
+.my-activity-months-fade-start {
+	--fade-start: 32px;
+}
+
+.my-activity-months-fade-end {
+	--fade-end: 32px;
+}
+
+.my-activity-arrow {
+	display: flex;
+	flex: none;
+	align-items: center;
+	justify-content: center;
+	width: 32px;
+	height: 32px;
+	padding: 0;
+	border: none;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, 0.08);
+	color: #fff;
+	cursor: pointer;
+}
+
+.my-activity-arrow:hover:not(:disabled) {
+	background: rgba(255, 255, 255, 0.16);
+}
+
+.my-activity-arrow:disabled {
+	opacity: 0.3;
+	cursor: default;
+}
+
+.my-activity-arrow::before {
+	content: "";
+	width: 8px;
+	height: 8px;
+	margin-left: -3px;
+	border-top: 2px solid currentColor;
+	border-right: 2px solid currentColor;
+	transform: rotate(45deg);
+}
+
+.my-activity-arrow-back::before {
+	margin: 0 -3px 0 0;
+	transform: rotate(-135deg);
+}
+
+.my-activity-month {
+	flex: none;
+	padding: 7px 16px;
+	border: none;
+	border-radius: 999px;
+	background: rgba(255, 255, 255, 0.08);
+	color: rgba(255, 255, 255, 0.7);
+	font: inherit;
+	font-size: 13px;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+.my-activity-month:hover {
+	background: rgba(255, 255, 255, 0.14);
+	color: #fff;
+}
+
+.my-activity-month-selected,
+.my-activity-month-selected:hover {
+	background: #fff;
+	color: #000;
+}
+
 .my-activity-banner {
 	position: relative;
 	display: flex;
@@ -60,7 +156,7 @@
 	font-size: 15px;
 }
 
-.my-activity-days-left {
+.my-activity-pill {
 	display: inline-block;
 	margin-top: 16px;
 	padding: 4px 12px;
